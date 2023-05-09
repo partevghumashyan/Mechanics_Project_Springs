@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Spring {
     private double stiffness;
 
@@ -37,7 +39,6 @@ public class Spring {
         double v_current = v0;
         double t_current = t0;
 
-
         for (int i = 0; i < size; i++) {
             double a, b;
             if (Math.sin(omega * t_current) == 0) {
@@ -69,5 +70,19 @@ public class Spring {
         double k1 = this.getStiffness();
         double k2 = that.getStiffness();
         return new Spring(k1 + k2);
+    }
+
+    public static Spring inParallel(List<Spring> springList) {
+        double k = 0;
+        for (Spring s : springList)
+            k += s.getStiffness();
+        return new Spring(k);
+    }
+
+    public static Spring inSeries(List<Spring> springList) {
+        double k = 0;
+        for (Spring s : springList)
+            k += 1 / s.getStiffness();
+        return new Spring(1 / k);
     }
 }

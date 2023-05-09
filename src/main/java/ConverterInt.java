@@ -1,28 +1,35 @@
-public class ConverterInt extends Converter {
-    @Override
-    public String toSpringExpression(String binarySequence) {
-        StringBuilder springExpr = new StringBuilder();
-        int length = binarySequence.length();
+import java.util.ArrayList;
+import java.util.List;
 
-        char[] sequence = binarySequence.toCharArray();
-        for (int i = 0; i < length-1; i++) {
-            if (sequence[i] == '1') {
-                springExpr.append("[]");
+public class ConverterInt extends Converter {
+    private String springExpr = "";
+    private Spring[] springs;
+
+    @Override
+    public Spring toSpringExpression(String binarySequence) {
+        StringBuilder expression = new StringBuilder("[");
+        char[] bits = binarySequence.toCharArray();
+        int powerOfTwo = 1;
+        List<Spring> springs = new ArrayList<>();
+        for (int i = bits.length - 1; i >= 0; i--) {
+            if (bits[i] == '1') {
+                springs.add(new Spring(powerOfTwo));
+                expression.append("[]");
             }
+            powerOfTwo *= 2;
         }
-        if (springExpr.length() > 2) {
-            springExpr.append("]");
-            springExpr.insert(0, "[");
-        }
-        return springExpr.toString();
+        expression.append("]");
+        return SpringArray.equivalentSpring(expression.toString(), springs);
     }
 
     @Override
     public double computeDecimalFromFT(Spring spring, int N) {
-        return 0;
+        return FT.findMaxAmplitudeIndex(computeAmplitudesOfOscillations(spring, N));
     }
 
     public static void main(String[] args) {
-
+        ConverterInt converterInt = new ConverterInt();
+        converterInt.toSpringExpression("1000");
+        System.out.println(converterInt.toSpringExpression("100").getStiffness());
     }
 }

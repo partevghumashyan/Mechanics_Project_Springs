@@ -1,6 +1,6 @@
 public class FT {
 
-    public static double[] findAmplitudes(double[] coordinates,  int N, double dt) {
+    public static double[] findAmplitudes(double[] coordinates, double dt, int N) {
         double[] amplitudes = new double[N];
         for(int j = 0; j < N; j++) {
             double a_coordinate = 0;
@@ -15,8 +15,8 @@ public class FT {
             b_coordinate = 2*b_coordinate/N;
             amplitudes[j] = (a_coordinate*a_coordinate) + (b_coordinate*b_coordinate);
         }
-        return amplitudes;
 
+        return amplitudes;
     }
 
     public static int findMaxAmplitudeIndex(double[] amplitudes) {
