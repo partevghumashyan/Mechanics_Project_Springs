@@ -1,3 +1,5 @@
+package springs;
+
 public class Converter8Bit extends Converter {
 
     @Override
@@ -21,21 +23,21 @@ public class Converter8Bit extends Converter {
     }
 
     public static void main(String[] args) {
-//        Converter8Bit thisConverter8Bit = new Converter8Bit();
+//        springs.Converter8Bit thisConverter8Bit = new springs.Converter8Bit();
 //        String binaryExample = "00000000"; //0
 //        String binarySpring = thisConverter8Bit.toSpringExpression(binaryExample);
-//        Spring spring = SpringArray.equivalentSpring(binarySpring);
+//        springs.Spring spring = springs.SpringArray.equivalentSpring(binarySpring);
 //        double decimal = spring.getStiffness();
 //        System.out.println(thisConverter8Bit.computeDecimalFromFT(spring, 30));
 //        System.out.println(decimal);
 //
 //        binaryExample = "00001001"; //9
 //        binarySpring = thisConverter8Bit.toSpringExpression(binaryExample);
-//        Spring newspring = thisConverter8Bit.createSpring(binaryExample.toCharArray());
+//        springs.Spring newspring = thisConverter8Bit.createSpring(binaryExample.toCharArray());
 //        System.out.println(newspring.getStiffness() + "newspring");
 //        System.out.println(thisConverter8Bit.evaluateByAmplitudes(computeAmplitudesOfOscillations(newspring,30)) + "sss");
 //
-//        spring = SpringArray.equivalentSpring(binarySpring);
+//        spring = springs.SpringArray.equivalentSpring(binarySpring);
 //        decimal = spring.getStiffness();
 //        System.out.println(thisConverter8Bit.computeDecimalFromFT(spring, 30));
 //        System.out.println(decimal);

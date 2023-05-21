@@ -1,3 +1,5 @@
+package springs;
+
 public abstract class Converter {
 
     private static final double DT = 0.1;

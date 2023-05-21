@@ -1,3 +1,5 @@
+package springs;
+
 import java.util.List;
 
 public class Spring {

@@ -1,3 +1,5 @@
+package springs;
+
 public class FT {
 
     public static double[] findAmplitudes(double[] coordinates, double dt, int N) {
